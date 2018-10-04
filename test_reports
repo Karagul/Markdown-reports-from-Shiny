@@ -1,0 +1,41 @@
+---
+output:
+    word_document:
+      reference_docx: RefDoc.docx
+geometry: margin = 0.5in
+---
+
+```{r eval = FALSE, echo = FALSE}
+knitr::opts_chunk$set(echo=FALSE,results="asis")
+library(ggplot2);library(plyr);library(dplyr);library(stargazer)
+```
+
+# `r paste("File check:",parent_org())`
+##### `r textA()`
+##### `r text_numberofplots()`
+
+***
+
+### File arrival times by date
+##### The position of each dot represents the date and time the file arrived. The size of the dot represents the number of messages in each file.
+```{r echo=FALSE, warning=FALSE, fig.width=10, fig.height=2.5}
+snowman_chart()
+```
+
+***
+
+### Message counts per event date by file
+##### The bars represent the number of messages per event date. The gray bars are the cumulative counts as of that file. The blue bars are the messages that arrived in that file.
+##### `r text_xrange_MESS()`
+```{r echo=FALSE, warning=FALSE, fig.width=10, fig.height=5}
+cityscape_message()
+```
+
+#### Dates with message counts below threshold
+##### The threshold is equal to 1 standard deviation below the historical mean.
+```{r echo=FALSE, warning=FALSE, fig.width=10, fig.height=5}
+message_low()
+```
+
+***
+***
