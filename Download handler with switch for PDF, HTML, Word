@@ -17,11 +17,14 @@
       file.copy(src, 'test_reports.Rmd', overwrite = TRUE)
       
       library(rmarkdown)
-      out <- render('test_reports.Rmd', 
+      out <- render('test_reports.Rmd', encoding = "utf-8
              switch(input$format,
-             PDF = pdf_document(), HTML = html_document(), Word = word_document()
+             PDF = pdf_document(), HTML = html_document(), Word = word_document(reference_docx = "~/RefDoc.docx")
       ))
       file.rename(out, file)
 
     }
   )
+
+
+
