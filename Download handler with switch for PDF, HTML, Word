@@ -1,3 +1,5 @@
+# This goes in the server function of your Shiny app
+
   # Code for producing static report
   # From: https://shiny.rstudio.com/gallery/download-knitr-reports.html
   
